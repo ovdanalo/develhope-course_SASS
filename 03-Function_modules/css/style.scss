@@ -1,0 +1,64 @@
+@use "color-module.scss" as color;
+
+@function toRem($val) {
+    @return calc($val / 16)+rem;
+
+}
+
+#container {
+    border: 1px solid color.$color-tertiary;
+
+    .title {
+        color: color.$color-primary;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        text-decoration-color: color.$color-secondary;
+    }
+
+    h1,
+    section,
+    article {
+        display: flex;
+        justify-content: center;
+    }
+
+    article {
+        padding: toRem(20);
+    }
+
+
+    #article-1 {
+        margin: toRem(20) 0 toRem(20) toRem(20);
+    }
+
+    #article-4 {
+        margin: toRem(20) toRem(20) toRem(20) 0;
+    }
+
+    #article-2,
+    #article-3 {
+        margin: toRem(20) 0;
+    }
+
+    @mixin layout ($color, $border: color.$color-primary, $font-size: 1rem) {
+        color: $color;
+        border: toRem(1) solid $border;
+        font-size: $font-size;
+    }
+
+    #article-1,
+    #article-3 {
+        @include layout (color.$color-secondary);
+    }
+
+    #article-2,
+    #article-4 {
+        @include layout (color.$color-tertiary);
+    }
+
+    #footer {
+        @include layout (color.$color-primary, color.$color-secondary, toRem(24));
+        flex-grow: 1;
+        margin: 0 toRem(20) toRem(20) toRem(20);
+    }
+}
