@@ -1,0 +1,107 @@
+@use "color-module.scss" as m-color;
+@use "sass:color";
+
+@function toRem($val) {
+    @return calc($val / 16)+rem;
+
+}
+
+#container {
+    border: 1px solid m-color.$color-tertiary;
+
+    .title {
+        color: m-color.$color-primary;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        text-decoration-color: m-color.$color-secondary;
+
+        &-2 {
+            @extend .title;
+            padding: 1rem;
+            border: toRem(1) solid m-color.$color-tertiary;
+            text-decoration: none;
+            flex-grow: 0;
+            width: toRem(300);
+            margin: auto;
+
+        }
+    }
+
+    h1,
+    h2,
+    section,
+    article {
+        display: flex;
+        justify-content: center;
+    }
+
+    #box-section {
+        justify-content: space-around;
+        margin-bottom: toRem(20)
+    }
+
+    article,
+    #box-section {
+        padding: toRem(20);
+    }
+
+
+    #article-1 {
+        margin: toRem(20) 0 toRem(20) toRem(20);
+    }
+
+    #article-4 {
+        margin: toRem(20) toRem(20) toRem(20) 0;
+    }
+
+    #article-2,
+    #article-3 {
+        margin: toRem(20) 0;
+    }
+
+    @mixin layout ($color, $border: m-color.$color-primary, $font-size: 1rem) {
+        color: $color;
+        border: toRem(1) solid $border;
+        font-size: $font-size;
+    }
+
+    #article-1,
+    #article-3 {
+        @include layout (m-color.$color-secondary);
+    }
+
+    #article-2,
+    #article-4 {
+        @include layout (m-color.$color-tertiary);
+    }
+
+    .box {
+        width: toRem(45);
+        height: toRem(45);
+        border: toRem(1) solid m-color.$color-tertiary;
+    }
+
+    #footer {
+        @include layout (m-color.$color-primary, m-color.$color-secondary, toRem(24));
+        flex-grow: 1;
+        margin: 0 toRem(20) toRem(20) toRem(20);
+    }
+}
+
+@for $index from 1 to 20 {
+    .box-#{$index} {
+        background-color: color.adjust(white, $lightness: calc($index * -5%));
+        color: color.adjust(black, $lightness: calc($index * 5%));
+    }
+}
+
+@for $var from 1 to 4 {
+    .fs-#{$var}rem {
+        font-size: $var + rem;
+    }
+}
+
+.box-10 {
+    background-color: m-color.$color-secondary;
+    color: m-color.$color-tertiary;
+}
