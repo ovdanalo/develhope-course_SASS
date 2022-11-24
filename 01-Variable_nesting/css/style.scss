@@ -1,0 +1,54 @@
+$color-primary: green;
+$color-secondary: blue;
+$color-tertiary: red;
+
+#container {
+    border: 1px solid $color-tertiary;
+
+    .exercise-title {
+        color: $color-primary;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        text-decoration-color: $color-secondary;
+    }
+
+    h1,
+    section,
+    article {
+        display: flex;
+        justify-content: center;
+    }
+
+    section {
+        article {
+            border: 1px solid $color-primary;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .article-1 {
+            margin: 20px 0 20px 20px;
+        }
+
+        .article-2,
+        .article-3 {
+            margin: 20px 0;
+        }
+
+        .article-4 {
+            margin: 20px 20px 20px 0;
+        }
+
+        @for $index from 1 through 4 {
+            .article-#{$index} {
+                @if ($index % 2)==0 {
+                    color: $color-tertiary;
+                }
+
+                @else {
+                    color: $color-secondary;
+                }
+            }
+        }
+    }
+}
