@@ -1,0 +1,61 @@
+$color-primary: green;
+$color-secondary: blue;
+$color-tertiary: red;
+
+#container {
+    border: 1px solid $color-tertiary;
+
+    .title {
+        color: $color-primary;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        text-decoration-color: $color-secondary;
+    }
+
+    h1,
+    section,
+    article {
+        display: flex;
+        justify-content: center;
+    }
+
+    article {
+        padding: 20px;
+    }
+
+
+    #article-1 {
+        margin: 20px 0 20px 20px;
+    }
+
+    #article-4 {
+        margin: 20px 20px 20px 0;
+    }
+
+    #article-2,
+    #article-3 {
+        margin: 20px 0;
+    }
+
+    @mixin layout ($color, $border: $color-primary, $font-size: 1rem) {
+        color: $color;
+        border: 1px solid $border;
+        font-size: $font-size;
+    }
+
+    #article-1,
+    #article-3 {
+        @include layout ($color-secondary);
+    }
+
+    #article-2,
+    #article-4 {
+        @include layout ($color-tertiary);
+    }
+
+    #footer {
+        @include layout ($color-primary, $color-secondary, 24px);
+        flex-grow: 1;
+        margin: 0 20px 20px 20px;
+    }
+}
