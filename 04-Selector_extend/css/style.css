@@ -1,0 +1,58 @@
+#container {
+  border: 1px solid red;
+}
+#container .title, #container .title-2 {
+  color: green;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: blue;
+}
+#container .title-2 {
+  padding: 1rem;
+  border: 0.0625rem solid red;
+  text-decoration: none;
+  flex-grow: 0;
+  width: 18.75rem;
+  margin: auto;
+}
+#container h1,
+#container h2,
+#container section,
+#container article {
+  display: flex;
+  justify-content: center;
+}
+#container article {
+  padding: 1.25rem;
+}
+#container #article-1 {
+  margin: 1.25rem 0 1.25rem 1.25rem;
+}
+#container #article-4 {
+  margin: 1.25rem 1.25rem 1.25rem 0;
+}
+#container #article-2,
+#container #article-3 {
+  margin: 1.25rem 0;
+}
+#container #article-1,
+#container #article-3 {
+  color: blue;
+  border: 0.0625rem solid green;
+  font-size: 1rem;
+}
+#container #article-2,
+#container #article-4 {
+  color: red;
+  border: 0.0625rem solid green;
+  font-size: 1rem;
+}
+#container #footer {
+  color: green;
+  border: 0.0625rem solid blue;
+  font-size: 1.5rem;
+  flex-grow: 1;
+  margin: 0 1.25rem 1.25rem 1.25rem;
+}
+
+/*# sourceMappingURL=style.css.map */
