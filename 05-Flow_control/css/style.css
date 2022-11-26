@@ -115,6 +115,11 @@
   color: gray;
 }
 
+.box-10 {
+  background-color: blue;
+  color: red;
+}
+
 .box-11 {
   background-color: #737373;
   color: #8c8c8c;
@@ -170,11 +175,6 @@
 
 .fs-3rem {
   font-size: 3rem;
-}
-
-.box-10 {
-  background-color: blue;
-  color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

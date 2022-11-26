@@ -93,15 +93,17 @@
         background-color: color.adjust(white, $lightness: calc($index * -5%));
         color: color.adjust(black, $lightness: calc($index * 5%));
     }
-}
-
-@for $var from 1 to 4 {
-    .fs-#{$var}rem {
-        font-size: $var + rem;
+    @if $index ==10 {
+        .box-#{$index} {
+            background-color: m-color.$color-secondary;
+            color: m-color.$color-tertiary;
+        }
     }
 }
 
-.box-10 {
-    background-color: m-color.$color-secondary;
-    color: m-color.$color-tertiary;
+$sizes: 1,2,3;
+@each $size in $sizes {
+    .fs-#{$size}rem {
+        font-size: $size + rem;
+    }
 }
